@@ -1,0 +1,2 @@
+# priskalkulator
+Test på konsept
