@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: #f6f7f9; color: #222; }
+.container { max-width: 860px; margin: 32px auto; padding: 0 16px; }
+
+h1 { margin: 0 0 8px; font-size: 28px; color: #1f3347; }
+.sub { margin: 0 0 24px; color: #5a6b7b; }
+
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; background: #fff; padding: 16px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field.inline { flex-direction: row; align-items: center; gap: 12px; }
+label { font-weight: 600; color: #2a3c4f; }
+select, input[type=number] { width: 100%; padding: 10px 12px; border: 1px solid #cdd6df; border-radius: 6px; background: #fff; font-size: 14px; }
+.enhet { color: #5a6b7b; font-style: italic; }
+
+.result { margin-top: 20px; background: #fff; padding: 16px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.result h2 { margin: 0 0 8px; color: #1f3347; }
+.pris { font-size: 28px; font-weight: 800; color: #138a36; }
+.note { margin-top: 8px; color: #5a6b7b; font-size: 13px; }
+.actions { margin-top: 12px; }
+button { padding: 10px 14px; border: 1px solid #0d6efd; background: #0d6efd; color: #fff; border-radius: 6px; cursor: pointer; }
+button.secondary { background: #fff; color: #0d6efd; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.cart { margin-top: 20px; background: #fff; padding: 16px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.cart-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.cart-table th, .cart-table td { padding: 8px 10px; border-top: 1px solid #e9eef3; }
+.cart-table thead th { text-align: left; background: #f4f7fb; }
+.cart-table td:nth-child(6), /* Linjetotal-kolonnen */
+.cart-table tfoot .sum-value { white-space: nowrap; }
+.sum-label { text-align: right; font-weight: 700; }
+.sum-value { font-weight: 800; color: #1f3347; }
+.cart-actions { margin-top: 10px; }
+
+.help { margin-top: 14px; color: #475869; }
+.help summary { cursor: pointer; }
+code { background: #eef3f8; padding: 2px 6px; border-radius: 4px; }

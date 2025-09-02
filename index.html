@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Utleie priskalkulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Utleie priskalkulator</h1>
+    <p class="sub">Velg sted, objekt og formål fra regnearket for å beregne pris.</p>
+
+  <section class="form">
+      <div class="field">
+        <label for="hvor">Hvor</label>
+        <select id="hvor"></select>
+      </div>
+      <div class="field">
+        <label for="hva">Hva</label>
+        <select id="hva" disabled>
+          <option value="" selected>Velg hvor først</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="formal">Formål</label>
+        <select id="formal" disabled>
+          <option value="" selected>Velg hvor først</option>
+        </select>
+      </div>
+      <div class="field inline">
+        <label for="antall">Antall</label>
+        <input id="antall" type="number" min="1" value="1" />
+        <span id="enhet" class="enhet"></span>
+      </div>
+    </section>
+
+    <section class="result">
+      <h2>Pris</h2>
+      <div class="pris" id="pris">0,- kr</div>
+      <div class="note" id="note"></div>
+      <div class="actions">
+        <button id="add-to-cart" type="button">Legg til i handlekurv</button>
+      </div>
+    </section>
+
+    <section class="cart">
+      <h2>Handlekurv</h2>
+      <div id="cart-empty">Handlekurven er tom.</div>
+      <div class="cart-wrap">
+        <table id="cart-table" class="cart-table" hidden>
+          <thead>
+            <tr>
+              <th>Hvor</th>
+              <th>Hva</th>
+              <th>Formål</th>
+              <th>Enhetssats</th>
+              <th>Antall</th>
+              <th>Linjetotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="sum-label">Sum</td>
+              <td class="sum-value" id="cart-sum">0,- kr</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="cart-actions" hidden>
+          <button id="clear-cart" type="button" class="secondary">Tøm handlekurv</button>
+        </div>
+      </div>
+    </section>
+
+    <details class="help">
+      <summary>Om dataene</summary>
+      <p>Prisene lastes fra <code>gebyrregulativ_2025.csv</code>. Parseren er tolerant mot ekstra komma og tomme kolonner.</p>
+    </details>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
