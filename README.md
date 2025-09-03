@@ -2,6 +2,12 @@
 
 En enkel, generisk web-kalkulator som leser priser fra `gebyrregulativ_2025.csv`, lar deg velge kombinasjoner og beregner pris, samt bygge en handlekurv med flere linjer.
 
+# Demo
+
+Eksempelet viser hvordan kalkulatoren fungerer for et komplekst utleiescenario.
+
+[https://porticoestate.github.io/priskalkulator/](https://porticoestate.github.io/priskalkulator/)
+
 ## Filstruktur
 
 - `index.html` – Brukergrensesnitt (valg, pris, handlekurv)
