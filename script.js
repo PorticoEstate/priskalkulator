@@ -224,15 +224,15 @@ function formatCurrency(n) { return n.toLocaleString('nb-NO') + ',- kr'; }
     cartTbody.innerHTML = cart.map((item, idx) => {
       const line = item.sats * item.antall;
       return `<tr>
-        <td>${item.hvor}</td>
-        <td>${item.hva || '<em>(ikke spesifikt)</em>'}</td>
-        <td>${item.formal}</td>
-        <td>${formatCurrency(item.sats)}${item.enhet ? ` / ${item.enhet}` : ''}</td>
-        <td>
-          <input type="number" min="1" value="${item.antall}" data-idx="${idx}" class="cart-qty" style="width:90px" />
+        <td data-label="Hvor">${item.hvor}</td>
+        <td data-label="Hva">${item.hva || '<em>(ikke spesifikt)</em>'}</td>
+        <td data-label="Formål">${item.formal}</td>
+        <td data-label="Enhetssats">${formatCurrency(item.sats)}${item.enhet ? ` / ${item.enhet}` : ''}</td>
+        <td data-label="Antall">
+          <input type="number" min="1" value="${item.antall}" data-idx="${idx}" class="cart-qty" />
         </td>
-        <td>${formatCurrency(line)}</td>
-        <td><button type="button" class="remove" data-idx="${idx}">Fjern</button></td>
+        <td data-label="Linjetotal">${formatCurrency(line)}</td>
+        <td data-label="Fjern"><button type="button" class="remove" data-idx="${idx}">Fjern</button></td>
       </tr>`;
     }).join('');
     const sum = cart.reduce((s, it) => s + it.sats * it.antall, 0);
