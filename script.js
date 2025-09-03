@@ -98,6 +98,10 @@ function formatCurrency(n) { return n.toLocaleString('nb-NO') + ',- kr'; }
   const prisOut = document.getElementById('pris');
   const note = document.getElementById('note');
   const addBtn = document.getElementById('add-to-cart');
+  const printBtn = document.getElementById('print-pdf');
+  const kundeInput = document.getElementById('kunde');
+  const ordreInput = document.getElementById('ordre');
+  const printMeta = document.getElementById('print-meta');
   const cartTable = document.getElementById('cart-table');
   const cartTbody = cartTable.querySelector('tbody');
   const cartSum = document.getElementById('cart-sum');
@@ -269,4 +273,25 @@ function formatCurrency(n) { return n.toLocaleString('nb-NO') + ',- kr'; }
     cart.splice(0, cart.length);
     renderCart();
   });
+
+  // PDF nedlasting via utskriftsdialog
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      // Sørg for at siste kalkyle er oppdatert før print
+      calculate();
+      // Sett referansefelt for PDF
+      const kunde = (kundeInput?.value || '').trim();
+      const ordre = (ordreInput?.value || '').trim();
+      if (printMeta) {
+        const now = new Date();
+        const dato = now.toLocaleString('nb-NO');
+        let html = '<strong>Oppsummering</strong>';
+        if (kunde) html += `<div>Kundereferanse: ${kunde}</div>`;
+        if (ordre) html += `<div>Ordrenummer: ${ordre}</div>`;
+        html += `<div><small>Generert: ${dato}</small></div>`;
+        printMeta.innerHTML = html;
+      }
+      window.print();
+    });
+  }
 })();

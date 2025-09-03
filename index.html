@@ -10,6 +10,7 @@
   <main class="container">
     <h1>Utleie priskalkulator</h1>
     <p class="sub">Velg sted, objekt og formål fra regnearket for å beregne pris.</p>
+  <div id="print-meta" class="print-meta"></div>
 
   <section class="form">
       <div class="field">
@@ -33,6 +34,14 @@
         <input id="antall" type="number" min="1" value="1" />
         <span id="enhet" class="enhet"></span>
       </div>
+      <div class="field">
+        <label for="kunde">Kundereferanse</label>
+        <input id="kunde" type="text" placeholder="Navn/Ref…" />
+      </div>
+      <div class="field">
+        <label for="ordre">Ordrenummer</label>
+        <input id="ordre" type="text" placeholder="12345" />
+      </div>
     </section>
 
     <section class="result">
@@ -41,6 +50,7 @@
       <div class="note" id="note"></div>
       <div class="actions">
         <button id="add-to-cart" type="button">Legg til i handlekurv</button>
+  <button id="print-pdf" type="button" class="secondary">Last ned som PDF</button>
       </div>
     </section>
 

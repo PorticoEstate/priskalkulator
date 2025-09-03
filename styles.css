@@ -35,3 +35,22 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .help { margin-top: 14px; color: #475869; }
 .help summary { cursor: pointer; }
 code { background: #eef3f8; padding: 2px 6px; border-radius: 4px; }
+
+.print-meta { display: none; margin-bottom: 8px; color: #1f3347; }
+.print-meta small { color: #475869; }
+
+/* Print/PDF styles */
+@media print {
+	.print-meta { display: block !important; margin: 0 0 8px; }
+	.result { display: none !important; }
+	body { background: #fff; }
+	.form, .help, .actions button#add-to-cart, .cart-actions, .sub { display: none !important; }
+	.container { max-width: none; margin: 0; padding: 0; }
+	h1 { margin: 0 0 8px; }
+	.result, .cart { box-shadow: none; border: none; }
+	.result { margin-top: 0; }
+	.cart-table th, .cart-table td { border: 1px solid #ccc; }
+	.cart-table thead th { background: #eee; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+	button { display: none !important; }
+	input.cart-qty { border: none; }
+}
